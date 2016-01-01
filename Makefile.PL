@@ -25,11 +25,12 @@ my %WriteMakefileArgs = (
     "File::Spec" => 0,
     "IO::Handle" => 0,
     "IPC::Open3" => 0,
+    "Test::Deep" => 0,
     "Test::More" => 0,
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.0.1",
+  "VERSION" => "0.1.0",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -43,6 +44,7 @@ my %FallbackPrereqs = (
   "IPC::Open3" => 0,
   "Moose" => 0,
   "Moose::Role" => 0,
+  "Test::Deep" => 0,
   "Test::More" => 0,
   "strict" => 0,
   "warnings" => 0

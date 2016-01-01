@@ -41,7 +41,7 @@ DESCRIPTION
     issued as the sentinel will immediately get out of scope, which turns
     the whole thing into a glorious no-op.
 
-PROVIDED METHODS
+PROVIDED DELEGATION METHODS
 
  localize( $new_value )
 
@@ -52,4 +52,71 @@ PROVIDED METHODS
     its previous value once it gets out of scope. The method will warn if
     it is called in a void context (as the sentinel will immediately falls
     out of scope).
+
+ localize_stack
+
+    Returns the stack of values for the attribute, including the current
+    value.
+
+        {
+            package Foo;
+    
+            use Moose;
+            use MooseX::Attribute::Localize;
+    
+            has bar => (
+                traits => [ 'Localize' ],
+                is => 'rw',
+                handles => {
+                    local_bar => 'localize',
+                    bar_stack => 'localize_stack',
+                },
+            );
+        }
+    
+        my $foo = Foo->new( bar => 'a' );
+        
+        {
+            $foo->local_bar('b');
+            my @stack = $self->bar_stack;  # ( 'a', 'b' )
+        }
+
+ATTRIBUTE ARGUMENTS
+
+        has bar => (
+                traits => [ 'Localize' ],
+                is => 'rw',
+                localize_push => 'spy_on_push',
+                localize_pop  => sub { 
+                    my( $object, $new, $old, $attribute ) = @_;
+                    ...;
+                },
+                handles => {
+                    local_bar => 'localize',
+                    bar_stack => 'localize_stack',
+                },
+        );
+    
+        sub spy_on_push {
+            my( $self, $new, $old, $attribute ) = @_;
+            ...;
+        }
+
+ localize_push
+
+    If defined, will be called when a new value is pushed unto the
+    attribute's stack. Can be the name of a method of the parent object, or
+    a coderef.
+
+    When called, the associated function/method will be passed the object,
+    the new pushed value, the previous one, and the attribute object.
+
+ localize_pop
+
+    If defined, will be called when a new value is popped from the
+    attribute's stack. Can be the name of a method of the parent object, or
+    a coderef.
+
+    When called, the associated function/method will be passed the object,
+    the new popped value, the previous one, and the attribute object.
 

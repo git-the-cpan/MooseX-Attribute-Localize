@@ -7,6 +7,7 @@ build_requires:
   File::Spec: '0'
   IO::Handle: '0'
   IPC::Open3: '0'
+  Test::Deep: '0'
   Test::More: '0'
   perl: '5.006'
   strict: '0'
@@ -23,13 +24,13 @@ name: MooseX-Attribute-Localize
 provides:
   Moose::Meta::Attribute::Custom::Trait::Localize:
     file: lib/MooseX/Attribute/Localize.pm
-    version: v0.0.1
+    version: v0.1.0
   MooseX::Attribute::Localize:
     file: lib/MooseX/Attribute/Localize.pm
-    version: v0.0.1
+    version: v0.1.0
   MooseX::Attribute::Localize::Sentinel:
     file: lib/MooseX/Attribute/Localize.pm
-    version: v0.0.1
+    version: v0.1.0
 requires:
   Moose: '0'
   Moose::Role: '0'
@@ -37,7 +38,7 @@ resources:
   bugtracker: https://github.com/yanick/MooseX-Attribute-Localize/issues
   homepage: https://github.com/yanick/MooseX-Attribute-Localize
   repository: https://github.com/yanick/MooseX-Attribute-Localize.git
-version: 0.0.1
+version: 0.1.0
 x_author_pledge:
   version: 1
 x_authority: cpan:YANICK
