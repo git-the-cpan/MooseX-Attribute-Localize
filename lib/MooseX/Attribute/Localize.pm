@@ -1,7 +1,7 @@
 package MooseX::Attribute::Localize;
 our $AUTHORITY = 'cpan:YANICK';
 # ABSTRACT: localize attribute values within a scope
-$MooseX::Attribute::Localize::VERSION = '0.1.0';
+$MooseX::Attribute::Localize::VERSION = '0.1.1';
 use Moose::Role;
 
 has _value_stack => (
@@ -67,7 +67,7 @@ before '_canonicalize_handles' => sub {
 {
 package MooseX::Attribute::Localize::Sentinel;
 our $AUTHORITY = 'cpan:YANICK'; 
-$MooseX::Attribute::Localize::Sentinel::VERSION = '0.1.0';
+$MooseX::Attribute::Localize::Sentinel::VERSION = '0.1.1';
 use Moose;
 
     has [qw/ attribute object /] => ( is => 'ro' );
@@ -90,7 +90,7 @@ use Moose;
 {
     package Moose::Meta::Attribute::Custom::Trait::Localize;
 our $AUTHORITY = 'cpan:YANICK';
-$Moose::Meta::Attribute::Custom::Trait::Localize::VERSION = '0.1.0';
+$Moose::Meta::Attribute::Custom::Trait::Localize::VERSION = '0.1.1';
 sub register_implementation { 'MooseX::Attribute::Localize' }
 
 }
@@ -109,7 +109,7 @@ MooseX::Attribute::Localize - localize attribute values within a scope
 
 =head1 VERSION
 
-version 0.1.0
+version 0.1.1
 
 =head1 SYNOPSIS
 
@@ -191,7 +191,7 @@ Returns the stack of values for the attribute, including the current value.
     my $foo = Foo->new( bar => 'a' );
     
     {
-        $foo->local_bar('b');
+        my $s = $foo->local_bar('b');
         my @stack = $self->bar_stack;  # ( 'a', 'b' )
     }
 
