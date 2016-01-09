@@ -4,7 +4,7 @@
       "Yanick Champoux <yanick@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.042, CPAN::Meta::Converter version 2.150001",
+   "generated_by" : "Dist::Zilla version 5.043, CPAN::Meta::Converter version 2.150001",
    "license" : [
       "perl_5"
    ],
@@ -43,7 +43,7 @@
             "File::Spec" : "0",
             "IO::Handle" : "0",
             "IPC::Open3" : "0",
-            "Test::Deep" : "0",
+            "Test::Deep" : "0.111",
             "Test::More" : "0",
             "perl" : "5.006",
             "strict" : "0",
@@ -54,15 +54,15 @@
    "provides" : {
       "Moose::Meta::Attribute::Custom::Trait::Localize" : {
          "file" : "lib/MooseX/Attribute/Localize.pm",
-         "version" : "v0.1.1"
+         "version" : "v0.1.2"
       },
       "MooseX::Attribute::Localize" : {
          "file" : "lib/MooseX/Attribute/Localize.pm",
-         "version" : "v0.1.1"
+         "version" : "v0.1.2"
       },
       "MooseX::Attribute::Localize::Sentinel" : {
          "file" : "lib/MooseX/Attribute/Localize.pm",
-         "version" : "v0.1.1"
+         "version" : "v0.1.2"
       }
    },
    "release_status" : "stable",
@@ -77,7 +77,7 @@
          "web" : "https://github.com/yanick/MooseX-Attribute-Localize"
       }
    },
-   "version" : "0.1.1",
+   "version" : "0.1.2",
    "x_author_pledge" : {
       "version" : 1
    },
